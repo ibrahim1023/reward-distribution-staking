@@ -4,6 +4,8 @@ use anchor_lang::prelude::*;
 pub enum StakeError {
     #[msg("Incorrect program authority")]
     InvalidProgramAuthority,
+    #[msg("Incorrect mint authority")]
+    InvalidMintAuthority,
     #[msg("Token mint is invalid")]
     InvalidMint,
     #[msg("Invalid user provided")]
