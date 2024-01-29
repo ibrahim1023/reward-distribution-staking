@@ -32,6 +32,8 @@ pub struct InitializePool<'info> {
     #[account(mut, constraint=program_authority.key() == PROGRAM_AUTHORITY @ StakeError::InvalidProgramAuthority)]
     pub program_authority: Signer<'info>,
     #[account(seeds=[VAULT_AUTH_SEED.as_bytes()], bump)]
+
+    /// CHECK: This is not dangerous because we're only using this as a program signer
     pub vault_authority: AccountInfo<'info>,
     pub token_program: Program<'info, Token>,
     pub system_program: Program<'info, System>,

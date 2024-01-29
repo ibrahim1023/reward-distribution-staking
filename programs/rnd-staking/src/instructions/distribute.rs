@@ -74,6 +74,8 @@ pub struct DistributeCtx<'info> {
     #[account(mut, constraint = token_mint.key() == pool_state.token_mint @ StakeError::InvalidMint )]
     pub token_mint: Account<'info, Mint>,
     #[account(constraint = mint_auth.key() == pool_state.vault_authority @ StakeError::InvalidMintAuthority)]
+
+    /// CHECK: This is not dangerous because using as program signer
     pub mint_auth: AccountInfo<'info>,
     pub token_program: Program<'info, Token>,
 }
